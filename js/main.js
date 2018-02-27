@@ -1,13 +1,21 @@
 const data = {
-  todos: [
-    new Todo("learn vue"),
-    new Todo("code in vue"),
-    new Todo("do someting amazing"),
-    new Todo("do real big app")
-  ],
+  todos: [],
   filter: "",
   newTodo: ""
 };
+
+{
+  //init todos from localstorage
+  const todoStore = JSON.parse(window.localStorage.getItem("todos"));
+  todoStore.forEach(todo => {
+    const { txt, status, editMode } = todo;
+    var temp = new Todo();
+    temp.txt = txt;
+    temp.status = status;
+    temp.editMode = editMode;
+    data.todos.push(temp);
+  });
+}
 
 // create a root instance
 const app = new Vue({
@@ -28,5 +36,20 @@ const app = new Vue({
         document.querySelector("#pointHere").focus();
       }, 150);
     }
+  },
+  watch: {
+    todos: function(val) {
+      const temp = [];
+      this.todos.forEach(todo => {
+        const { txt, status, editMode } = todo;
+        temp.push({
+          txt,
+          status,
+          editMode
+        });
+      });
+
+      window.localStorage.setItem("todos", JSON.stringify(temp));
+    },
   }
 });

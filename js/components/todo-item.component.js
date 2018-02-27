@@ -26,7 +26,7 @@ Vue.component("todo-item", {
   },
   template: `<li class="relative">
                     <img v-if="todo.isCompleted()" src="resources/v-icon.png" />
-                    <span v-if="!isEditMode" @click="editMode=true; app.setFocus(index);" :style="isStrikeThrough" :title="title">{{todo.txt}} - {{todo.status}}</span>
+                    <span v-if="!isEditMode" @click="editMode=true; app.setFocus(index);" :style="isStrikeThrough" :title="title">{{todo.txt}}</span>
                     <input v-else @mouseleave="editMode=false" id="pointHere" v-model="todo.txt" />
     
                     <span class="absolute todo-pills">
