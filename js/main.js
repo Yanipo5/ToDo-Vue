@@ -6,7 +6,7 @@ const data = {
 
 {
   //init todos from localstorage
-  const todoStore = JSON.parse(window.localStorage.getItem("todos"));
+  const todoStore = JSON.parse(window.localStorage.getItem("todos")) || [];
   todoStore.forEach(todo => {
     const { txt, status, editMode } = todo;
     var temp = new Todo();
