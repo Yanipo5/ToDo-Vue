@@ -38,18 +38,22 @@ const app = new Vue({
     }
   },
   watch: {
-    todos: function(val) {
-      const temp = [];
-      this.todos.forEach(todo => {
-        const { txt, status, editMode } = todo;
-        temp.push({
-          txt,
-          status,
-          editMode
+    todos: {
+      //deep watching
+      handler: function() {
+        const temp = [];
+        this.todos.forEach(todo => {
+          const { txt, status, editMode } = todo;
+          temp.push({
+            txt,
+            status,
+            editMode
+          });
         });
-      });
 
-      window.localStorage.setItem("todos", JSON.stringify(temp));
-    },
+        window.localStorage.setItem("todos", JSON.stringify(temp));
+      },
+      deep: true
+    }
   }
 });
