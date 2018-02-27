@@ -1,0 +1,19 @@
+{
+  "name": "Vue-To-Do",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "hot": "browser-sync start --server --files '*.html' 'js' 'css'",
+    "//hot": "will start a development server with hot reload"
+  },
+  "dependencies": {
+    "bootstrap-material-design": "^4.1.1",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.12.6",
+    "vue": "^2.5.13"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.23.6"
+  }
+}

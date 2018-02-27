@@ -1,0 +1,57 @@
+/* 
+ */
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.todo-pills{
+    right: 5px;
+}
+
+#app {
+    width: 500px;
+    max-width: 100%;
+    margin: auto;
+    margin-top: 30px;
+    padding: 5px;
+    transition: max-width, ease-in, 0.3s;
+}
+
+@media (max-width: 500px) {
+    #app {
+        margin-top: 0px;
+    }
+}
+
+.container-vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: auto;
+}
+
+.todos-container {
+    width: 500px;
+    max-width: 95%;
+    padding-left: 0px;
+}
+
+.todos-container li {
+    list-style: none;
+    text-align: left;
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px black solid;
+    opacity: 0.75;
+    transition: all, ease-in, 0.3s;
+    background-color: lightsalmon;
+}
+
+.todos-container li:hover {
+    opacity: 1;
+}
