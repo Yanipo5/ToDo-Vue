@@ -25,7 +25,7 @@
         <br>
         <input v-model="newTodo" placeholder="insert new todo text" @keyup.enter="app.addTodo()" />
         <ul class="container-vertical todos-container">
-            <todo-item v-for="(todo,index) in todos" :todo="todo" :index="index" v-if="todo.txt.includes(filter)" />
+            <todo-item v-for="(todo,index) in todos" :todo="todo" :index="index" v-if="todo.txt.toLowerCase().includes(filter.toLowerCase())" />
         </ul>
     </div>
 
