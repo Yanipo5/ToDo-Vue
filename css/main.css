@@ -18,7 +18,7 @@
     max-width: 100%;
     margin: auto;
     margin-top: 30px;
-    padding: 5px;
+    padding: 10px;
     transition: max-width, ease-in, 0.3s;
 }
 
