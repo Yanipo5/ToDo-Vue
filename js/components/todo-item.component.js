@@ -10,7 +10,7 @@ Vue.component("todo-item", {
     /**
      * @returns strike thourogh completed todos.
      */
-    strikeThrough: function() {
+    isStrikeThrough: function() {
       if (this.todo.status === "completed") {
         return { "text-decoration": "line-through" };
       } else {
@@ -25,11 +25,9 @@ Vue.component("todo-item", {
     }
   },
   template: `<li class="relative">
-                    <img src="resources/v-icon.png" v-if="todo.isCompleted()" />
-                    <span @click="editMode=true; app.setFocus(index);" :style="strikeThrough" v-if="!isEditMode" :title="title">{{todo.txt}} - {{todo.status}}</span>
-                    <span v-else>
-                        <input @mouseleave="editMode=false" id="pointHere" v-model="todo.txt" />
-                    </span>
+                    <img v-if="todo.isCompleted()" src="resources/v-icon.png" />
+                    <span v-if="!isEditMode" @click="editMode=true; app.setFocus(index);" :style="isStrikeThrough" :title="title">{{todo.txt}} - {{todo.status}}</span>
+                    <input v-else @mouseleave="editMode=false" id="pointHere" v-model="todo.txt" />
     
                     <span class="absolute todo-pills">
                         <a v-if="!todo.isCompleted()" class="badge badge-pill badge-primary" href="#" @click="todo.setCompletedStatus()"> complete </a>
